@@ -57,6 +57,23 @@ def main():
         # but this can be useful to just display some content for testing purposes.
         print("Actor " + actor['name'] + " has children named: " + str(actor['children']))
 
+        # We can also iterate through the keys and values in each actor object and see what the contents are.
+        # This is useful if we want to access the keys so we can convert this json to something else.
+        # Note that we have to use the .items() method which unpacks the dictionary into an array of tuple pairs like
+        # this: [('key1', 'value1), ('key2', 'value2), ...etc ]
+        for key, value in actor.items():
+            print("Key is " + str(key) + " and value is " + str(value))
+            # We can also test to see if a key exists and print its value if we want.
+            # Again we have to use str(data) so we convert the number to a readable string
+            if key == 'weight':
+                print("Actor has a weight key and the value is " + str(value))
+
+        # We can also loop through just the keys and do some testing to see if a value exists in the actor object
+        # This can be useful for doing something like checking the first object and writing a header row for a CSV
+        for key in actor:
+            if key == 'Born At':
+                print("We have a born at key in this actor object")
+
     # Close our file so it's not write locked some something dumb like that.
     file_contents.close()
 
